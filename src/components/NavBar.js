@@ -9,12 +9,11 @@ const Navs = () => {
                         ];
     return ( 
         <>
-            <Navbar collapseOnSelect className="bg-light justify-content-between">
+            <Navbar collapseOnSelect className="bg-light">
                 <Navbar.Brand href="#home">
                     <img
-                        src="./logo_bs.png"
-                        width="50"
-                        height="50"
+                        src="./bigfoot-shoes.png"
+                        width="100"
                         className="d-inline-block align-top"
                         alt="bigfoot logo"
                     />
