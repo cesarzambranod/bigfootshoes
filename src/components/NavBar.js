@@ -2,6 +2,11 @@ import React from 'react';
 import {Navbar,Nav,NavDropdown} from 'react-bootstrap';
 
 const Navs = () => {
+    const categories =[{"name":"Adidas"},
+                        {"name":"Nike"},
+                        {"name":"Puma"},
+                        {"name":"Rebook"},
+                        ];
     return ( 
         <>
             <Navbar collapseOnSelect className="bg-light justify-content-between">
@@ -19,10 +24,11 @@ const Navs = () => {
                     <Nav className="mr-auto">
                         <Nav.Link href="/">Inicio</Nav.Link>
                         <NavDropdown title="Categoria" id="basic-nav-dropdown">
-                            <NavDropdown.Item href="#Adidas">Adidas</NavDropdown.Item>
-                            <NavDropdown.Item href="#Nike">Nike</NavDropdown.Item>
-                            <NavDropdown.Item href="#Puma">Puma</NavDropdown.Item>
-                            <NavDropdown.Item href="#Rebook">Rebook</NavDropdown.Item>
+                        {categories.map(function(categorie, idx){
+                            return (
+                                <NavDropdown.Item key={idx} href={`#${categorie.name}`}>{categorie.name}</NavDropdown.Item>)
+                            })}
+                            
                         </NavDropdown>
                         <Nav.Link href="#Conctacto">Conctacto</Nav.Link>
                     </Nav>
