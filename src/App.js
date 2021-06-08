@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <NavBar/>
-      <ItemListContainer greeting="Dejando Grandes Huellas"/>
+      <ItemListContainer greeting="DEJANDO GRANDES HUELLAS"/>
     </>
   );
 }
