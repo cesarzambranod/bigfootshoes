@@ -30,9 +30,7 @@ const ItemListContainer = ({greeting}) => {
                 </Col>
             </Row>
         </Container>
-        
-        {(items.length > 0)?<div style={{display:'table',}}><ItemList items={items} ></ItemList></div> : <Container className="text-center" style={{height: '21em',width:'23em'}}><Spinner style={{width:'50%',height:'50%'}}animation="grow" /></Container>}
-        
+        <div style={{display:'table',}}><ItemList items={items} ></ItemList></div>
     </>);
 }
  
