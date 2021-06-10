@@ -25,7 +25,7 @@ const Navs = () => {
                     <Nav className="mr-auto">
                         <Nav.Link href="/">Inicio</Nav.Link>
                         <NavDropdown title="Categoria" id="basic-nav-dropdown">
-                        {categories.map(function(categorie, idx){
+                        {categories.map((categorie, idx)=>{
                             return (
                                 <NavDropdown.Item key={idx} href={`#${categorie.name}`}>{categorie.name}</NavDropdown.Item>)
                             })}
