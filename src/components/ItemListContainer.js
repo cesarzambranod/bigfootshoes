@@ -1,25 +1,33 @@
-import React,{ useState } from 'react';
-import {Container,Row,Col,Spinner} from 'react-bootstrap';
+import React,{ useState,useEffect } from 'react';
+import {Container,Row,Col} from 'react-bootstrap';
 import ItemList from './ItemList';
 
     
 const ItemListContainer = ({greeting}) => {
     var arrayItems = [];
     const [items, setItems] = useState([]);
-
-    setTimeout(()=>{ 
+    useEffect(() =>{
         arrayItems.push(
-        {'id':1,'pictureUrl':'adidas_1.jpg','title':'Adidas 1','price':59},
-        {'id':2,'pictureUrl':'nike_1.jpg','title':'Nike 1','price':53},
-        {'id':3,'pictureUrl':'fila_1.jpg','title':'Fila 1','price':55},
-        {'id':4,'pictureUrl':'puma_1.jpg','title':'Puma 1','price':52},    
-        {'id':5,'pictureUrl':'adidas_2.jpg','title':'Adidas 2','price':59},
-        {'id':6,'pictureUrl':'adidas_3.jpg','title':'Adidas 3','price':53},
-        {'id':7,'pictureUrl':'reebok_1.jpg','title':'Reebok 1','price':55}     
-        );
-
-        setItems ([...arrayItems]);
-    }, 2000);
+            {'id':1,'pictureUrl':'adidas_1.jpg','title':'Adidas 1','price':59,'init':10 },
+            {'id':2,'pictureUrl':'nike_1.jpg','title':'Nike 1','price':53, 'init':12},
+            {'id':3,'pictureUrl':'fila_1.jpg','title':'Fila 1','price':55,'init':15},
+            {'id':4,'pictureUrl':'puma_1.jpg','title':'Puma 1','price':52,'init':11},    
+            {'id':5,'pictureUrl':'adidas_2.jpg','title':'Adidas 2','price':59,'init':14},
+            {'id':6,'pictureUrl':'adidas_3.jpg','title':'Adidas 3','price':53,'init':20},
+            {'id':7,'pictureUrl':'reebok_1.jpg','title':'Reebok 1','price':55,'init':6}     
+            );
+        const getItem=(arrayItems) => {
+            return new Promise((resolve,reject) => {
+                setTimeout(() => {
+                    resolve(arrayItems)
+                },2000)
+            })
+        }
+        getItem(arrayItems)
+        .then((result) => { setItems ([...arrayItems]);})
+        .catch(error => console.log(error.message))
+    },[])
+    
    
     return ( 
     <>
