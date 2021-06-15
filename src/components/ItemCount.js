@@ -2,10 +2,10 @@ import React,{ useState } from 'react';
 import {Container,Row,Form,Button} from 'react-bootstrap';
 import Swal from 'sweetalert2'
 
-const ItemCount = () => {
+const ItemCount = ({init}) => {
 
     const [value, setValue] = useState([]);
-    const [stock, setStock] =useState(10);
+    const [stock, setStock] =useState(init);
 
     const handleChange = (e) =>{
         setValue ([...e.target.value]);

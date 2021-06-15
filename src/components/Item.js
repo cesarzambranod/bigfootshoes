@@ -1,5 +1,7 @@
 import React from 'react';
-import {Card,Button} from 'react-bootstrap';
+import {Card} from 'react-bootstrap';
+import ItemCount from './ItemCount';
+
 
 const Item = ({item}) => {
     return ( 
@@ -10,7 +12,7 @@ const Item = ({item}) => {
             <Card.Text>
                 {item.price} $
             </Card.Text>
-           <Button variant="primary">Agregar</Button>
+                <ItemCount  key init={item.init}></ItemCount>
         </Card.Body>
         </Card>
      );
