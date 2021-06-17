@@ -8,7 +8,7 @@ const ItemListContainer = ({greeting}) => {
     const [items, setItems] = useState([]);
     useEffect(() =>{
         arrayItems.push(
-            {'id':1,'pictureUrl':'adidas_1.jpg','title':'Adidas 1','price':59,'stock':150 },
+            {'id':1,'pictureUrl':'adidas_1.jpg','title':'Adidas 1','price':59,'stock':10 },
             {'id':2,'pictureUrl':'nike_1.jpg','title':'Nike 1','price':53, 'stock':12},
             {'id':3,'pictureUrl':'fila_1.jpg','title':'Fila 1','price':55,'stock':15},
             {'id':4,'pictureUrl':'puma_1.jpg','title':'Puma 1','price':52,'stock':11},    
