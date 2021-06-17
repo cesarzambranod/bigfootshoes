@@ -8,7 +8,7 @@ const ItemDetailContainer = () => {
     const [items, setItems] = useState([]);
     useEffect(() =>{
         arrayItems.push(
-            {'id':1,'pictureUrl':'adidas_1.jpg','title':'Adidas 1','price':59,'init':10},    
+            {'id':1,'pictureUrl':'adidas_1.jpg','title':'Adidas 1','price':59,'stock':10},    
             );
         const getItem=(arrayItems) => {
             return new Promise((resolve,reject) => {

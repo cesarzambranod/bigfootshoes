@@ -1,9 +1,25 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import {Row,Col,Card} from 'react-bootstrap';
 import Zoom from 'react-img-zoom';
 import ItemCount from './ItemCount';
-
+import Swal from 'sweetalert2'
 const ItemDetail = ({item}) => {
+
+    const [stock, setStock] =useState(item.stock);
+    const onAdd = (e,stock,StockRestante) => {
+        e.preventDefault ();
+        if(StockRestante > stock) {
+            Swal.fire({
+                title: 'Error!',
+                text: 'Superaste el stock disponible',
+                icon: 'error',
+                confirmButtonText: 'Ok'
+              });
+        }else {
+            setStock((stock) => stock - StockRestante);
+        }
+    }
+
     return ( 
         <Row className="justify-content-md-center">
                 <Col md="auto" xs={7}>
@@ -20,7 +36,7 @@ const ItemDetail = ({item}) => {
                         <Card.Body>
                             <Card.Title>{item.price} $</Card.Title>
                             
-                            <ItemCount key init={item.init}></ItemCount>
+                            <ItemCount  key init={1} stock={stock} onAdd={onAdd}></ItemCount>
                         </Card.Body>
                     </Card>
                 </Col>
