@@ -4,7 +4,6 @@ import Zoom from 'react-img-zoom';
 import ItemCount from './ItemCount';
 import Swal from 'sweetalert2'
 const ItemDetail = ({item}) => {
-
     const [stock, setStock] =useState(item.stock);
     const onAdd = (e,stock,StockRestante) => {
         e.preventDefault ();
@@ -24,14 +23,14 @@ const ItemDetail = ({item}) => {
         <Row className="justify-content-md-center">
                 <Col md="auto" xs={7}>
                     <Zoom
-                    img={`./img/${item.pictureUrl}`}
+                    img={`../img/${item.pictureUrl}`}
                     zoomScale={1.3}
                     width={650}
                     height={650}
                     />
                 </Col>
                 <Col md="auto" xs={5}>
-                    <Card style={{ width: '25rem'}}>
+                <Card style={{ width: '25rem'}}>
                         <Card.Header as="h3">{item.title}</Card.Header>
                         <Card.Body>
                             <Card.Title>{item.price} $</Card.Title>
