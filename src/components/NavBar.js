@@ -1,20 +1,21 @@
 import React from 'react';
 import {Navbar,Nav,NavDropdown} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import Cartwidget from './CartWidget';
 
 
 const Navs = () => {
-    const categories =[{"name":"Adidas"},
-                        {"name":"Nike"},
-                        {"name":"Puma"},
-                        {"name":"Rebook"},
+    const categories =[{"name":"adidas"},
+                        {"name":"nike"},
+                        {"name":"puma"},
+                        {"name":"reebok"},
                         ];
     return ( 
         <>
             <Navbar collapseOnSelect className="bg-light">
-                <Navbar.Brand href="#home">
+                <Navbar.Brand as={Link} to="/">
                     <img
-                        src="./bigfoot-shoes.png"
+                        src="../bigfoot-shoes.png"
                         width="100"
                         className="d-inline-block align-top"
                         alt="bigfoot logo"
@@ -23,15 +24,15 @@ const Navs = () => {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className="mr-auto">
-                        <Nav.Link href="/">Inicio</Nav.Link>
+                        <Nav.Link as={Link} to="/">Inicio</Nav.Link>
                         <NavDropdown title="Categoria" id="basic-nav-dropdown">
                         {categories.map((categorie, idx)=>{
                             return (
-                                <NavDropdown.Item key={idx} href={`#${categorie.name}`}>{categorie.name}</NavDropdown.Item>)
+                                <NavDropdown.Item key={idx} as={Link} to={`/category/${categorie.name}`} >{categorie.name.charAt(0).toUpperCase() + categorie.name.substring(1)}</NavDropdown.Item>)
                             })}
                             
                         </NavDropdown>
-                        <Nav.Link href="#Conctacto">Conctacto</Nav.Link>
+                        <Nav.Link as={Link} to="footer">Conctacto</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
                 <Cartwidget></Cartwidget>

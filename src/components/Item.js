@@ -1,5 +1,5 @@
 import React,{ useState } from 'react';
-import {Card} from 'react-bootstrap';
+import {Card,Button} from 'react-bootstrap';
 import ItemCount from './ItemCount';
 import Swal from 'sweetalert2'
 
@@ -22,13 +22,14 @@ const Item = ({item}) => {
     }
     return ( 
         <Card className="text-center" style={{ width: '18rem', float:"left" }} key={item.id}>
-        <Card.Img variant="top" src={`./img/${item.pictureUrl}`} />
+        <Card.Img variant="top" src={`../img/${item.pictureUrl}`} />
         <Card.Body>
+            <Button variant="dark" href={`/item/${item.id}`}> Ver Detalles</Button>                    
             <Card.Title>{item.title}</Card.Title>
             <Card.Text>
                 {item.price} $
             </Card.Text>
-                <ItemCount  key init={1} stock={stock} onAdd={onAdd}></ItemCount>
+            <ItemCount  key init={1} stock={stock} onAdd={onAdd}></ItemCount>
         </Card.Body>
         </Card>
      );
