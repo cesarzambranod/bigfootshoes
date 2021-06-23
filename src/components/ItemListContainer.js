@@ -6,7 +6,6 @@ import {useParams} from 'react-router-dom';
     
 const ItemListContainer = ({greeting}) => {
     const {category} = useParams();
-    console.log(category,'category');
     var arrayItems = []; 
     const [items, setItems] = useState([]);
     useEffect(() =>{
@@ -32,10 +31,10 @@ const ItemListContainer = ({greeting}) => {
     },[]);
     let listItems=[];
     if (category) {
-        items.filter(filtro=>filtro.category===category).map((item, idx)=> listItems.push(item));
+        items.filter(filtro=>filtro.category===category).map((item)=> listItems.push(item));
 
     } else {
-        items.map((item, idx)=> listItems.push(item)  );
+        items.map((item)=> listItems.push(item)  );
         }    
         
     return ( 
