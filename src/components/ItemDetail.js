@@ -5,6 +5,8 @@ import ItemCount from './ItemCount';
 import Swal from 'sweetalert2'
 const ItemDetail = ({item}) => {
     const [stock, setStock] =useState(item.stock);
+    const [saveProduct, setSaveProduct] =useState(false);
+
     const onAdd = (e,stock,StockRestante) => {
         e.preventDefault ();
         if(StockRestante > stock) {
@@ -14,13 +16,17 @@ const ItemDetail = ({item}) => {
                 icon: 'error',
                 confirmButtonText: 'Ok'
               });
+              setSaveProduct(false);
+
         }else {
             setStock((stock) => stock - StockRestante);
+            setSaveProduct(true);
+
         }
     }
 
     return ( 
-        <Row className="justify-content-md-center">
+        <Row key={item.id} className="justify-content-md-center">
                 <Col md="auto" xs={7}>
                     <Zoom
                     img={`../img/${item.pictureUrl}`}
@@ -35,7 +41,7 @@ const ItemDetail = ({item}) => {
                         <Card.Body>
                             <Card.Title>{item.price} $</Card.Title>
                             
-                            <ItemCount  key init={1} stock={stock} onAdd={onAdd}></ItemCount>
+                            <ItemCount init={1} stock={stock} onAdd={onAdd} saveProduct={saveProduct}></ItemCount>
                         </Card.Body>
                     </Card>
                 </Col>
