@@ -1,4 +1,4 @@
-import React,{ useState,useEffect } from 'react';
+import React,{ useState } from 'react';
 import {useParams} from 'react-router-dom';
 import {Container} from 'react-bootstrap';
 import ItemDetail from './ItemDetail';
@@ -8,7 +8,7 @@ const ItemDetailContainer = () => {
     const arrayItems = [];
     const [items, setItems] = useState([]);
     const {id} = useParams();
-    useEffect(() =>{
+   
         arrayItems.push(
             {'id':1,'pictureUrl':'adidas_1.jpg','title':'Adidas 1','price':59,'stock':10 },
             {'id':2,'pictureUrl':'nike_1.jpg','title':'Nike 1','price':53, 'stock':12},
@@ -18,18 +18,19 @@ const ItemDetailContainer = () => {
             {'id':6,'pictureUrl':'adidas_3.jpg','title':'Adidas 3','price':53,'stock':20},
             {'id':7,'pictureUrl':'reebok_1.jpg','title':'Reebok 1','price':55,'stock':6}     
             );
-        const getItem=(arrayItems) => {
-            return new Promise((resolve,reject) => {
-                setTimeout(() => {
-                    resolve(arrayItems)
-                },2000)
-            })
-        }
-        getItem(arrayItems)
+       
+        
+   
+    const getItem=(arrayItems) => {
+        return new Promise((resolve,reject) => {
+            setTimeout(() => {
+                resolve(arrayItems)
+            },2000)
+        })
+    }
+    getItem(arrayItems)
         .then((result) => { setItems ([...arrayItems]);})
         .catch(error => console.log(error.message))
-    },[])
-    
     return ( 
     <>
         <Container >

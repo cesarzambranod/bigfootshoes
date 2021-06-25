@@ -1,4 +1,4 @@
-import React,{ useState,useEffect } from 'react';
+import React,{ useState } from 'react';
 import {Container,Row,Col} from 'react-bootstrap';
 import ItemList from './ItemList';
 import {useParams} from 'react-router-dom';
@@ -8,7 +8,6 @@ const ItemListContainer = ({greeting}) => {
     const {category} = useParams();
     var arrayItems = []; 
     const [items, setItems] = useState([]);
-    useEffect(() =>{
         arrayItems.push(
             {'id':1,'pictureUrl':'adidas_1.jpg','title':'Adidas 1','price':59,'stock':10,'category':'adidas'},
             {'id':2,'pictureUrl':'nike_1.jpg','title':'Nike 1','price':53, 'stock':12,'category':'nike'},
@@ -28,7 +27,7 @@ const ItemListContainer = ({greeting}) => {
         getItem(arrayItems)
         .then((result) => { setItems ([...arrayItems]);})
         .catch(error => console.log(error.message))
-    },[]);
+    
     let listItems=[];
     if (category) {
         items.filter(filtro=>filtro.category===category).map((item)=> listItems.push(item));
