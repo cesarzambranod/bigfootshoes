@@ -33,7 +33,7 @@ const Item = ({item}) => {
             <Card.Text>
                 {item.price} $
             </Card.Text>
-            <ItemCount  key init={1} stock={stock} onAdd={onAdd} saveProduct={saveProduct}></ItemCount>
+            <ItemCount  init={1} stock={stock} onAdd={onAdd} saveProduct={saveProduct}></ItemCount>
         </Card.Body>
         </Card>
      );
