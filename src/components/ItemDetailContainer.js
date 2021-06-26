@@ -35,7 +35,7 @@ const ItemDetailContainer = () => {
     return ( 
     <>
         <Container >
-            {items.filter(detalle=>detalle.id===(parseInt(id))).map((item, idx)=>{
+            {items.filter(detalle=>(parseInt(detalle.id))===(parseInt(id))).map((item, idx)=>{
              
             return (
                 <div key={idx}>
