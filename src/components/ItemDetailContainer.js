@@ -5,10 +5,8 @@ import ItemDetail from './ItemDetail';
 
 
 const ItemDetailContainer = () => {
-    
-    const [items, setItems] = useState([]);
     const {id} = useParams();
-    
+    const [items, setItems] = useState([]);
     const getItem=(arrayItems) => {
         return new Promise((resolve,reject) => {
             setTimeout(() => {
@@ -29,7 +27,7 @@ const ItemDetailContainer = () => {
             ];
        
         getItem(arrayItems)
-        .then((result) => {setItems ([...result]);})
+        .then((result) => {setItems ([...arrayItems]);})
         .catch(error => console.log(error.message));
         
     },[]);
