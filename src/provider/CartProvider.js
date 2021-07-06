@@ -33,5 +33,6 @@ const CartProvider = ({item={}, quantity}) => {
         >
 
         </CartContext.Provider>
-      );}
+      );
+}
 export default CartProvider;
