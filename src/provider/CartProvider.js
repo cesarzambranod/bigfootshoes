@@ -1,6 +1,6 @@
 import {useState}from 'react';
 import CartContext from './../context/CartContext';
-export default function CartProvider({item={}, quantity}) {
+const CartProvider = ({item={}, quantity}) => {
     const  [cart,setCart]=useState(item);
     const  [store,setStore]=useState(quantity);
     function getFromCart(id) {
@@ -34,3 +34,4 @@ export default function CartProvider({item={}, quantity}) {
 
         </CartContext.Provider>
       );}
+export default CartProvider;
