@@ -1,11 +1,14 @@
-import React,{ useState } from 'react';
+import React,{useState,useContext} from 'react';
 import {Row,Col,Card} from 'react-bootstrap';
 import Zoom from 'react-img-zoom';
 import ItemCount from './ItemCount';
-import Swal from 'sweetalert2'
+import Swal from 'sweetalert2';
+import CartContext from './../context/CartContext';
+
 const ItemDetail = ({item}) => {
     const [stock, setStock] =useState(item.stock);
     const [saveProduct, setSaveProduct] =useState(false);
+    const { addItem } = useContext(CartContext);
 
     const onAdd = (e,stock,StockRestante) => {
         e.preventDefault ();
@@ -21,7 +24,7 @@ const ItemDetail = ({item}) => {
         }else {
             setStock((stock) => stock - StockRestante);
             setSaveProduct(true);
-
+            addItem(item,stock);
         }
     }
 

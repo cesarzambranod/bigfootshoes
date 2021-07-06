@@ -5,13 +5,13 @@ import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Footer from './components/Footer';
-import CartContext from './context/CartContext';
+import CartProvider from './provider/CartProvider';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
     <>  
-    <CartContext.Provider>
+    <CartProvider>
       <BrowserRouter>
         <NavBar/>
         <Switch>
@@ -27,7 +27,7 @@ function App() {
         </Switch>
             <Footer/>
       </BrowserRouter>
-     </CartContext.Provider>
+     </CartProvider>
     </>
   );
 }
