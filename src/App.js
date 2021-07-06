@@ -5,7 +5,7 @@ import NavBar from './components/NavBar';
 import ItemListContainer from './components/ItemListContainer';
 import ItemDetailContainer from './components/ItemDetailContainer';
 import Footer from './components/Footer';
-import CartContext from './context/cartContext'
+import CartContext from './context/CartContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
