@@ -1,7 +1,8 @@
 import {useState}from 'react';
 import CartContext from './../context/CartContext';
+import Home from './../components/Home';
 const CartProvider = ({item={}, quantity}) => {
-    const  [cart,setCart]=useState(item);
+    const  [cart,setCart]=useState([item]);
     const  [store,setStore]=useState(quantity);
     function getFromCart(id) {
         return cart.find(x => x.id === id);
@@ -16,22 +17,25 @@ const CartProvider = ({item={}, quantity}) => {
         setCart([...cart]);
       }
     
-      function addItem(obj,cantidad) {
-        if (isInCart(obj)) {
+      function addItem(item,quantity) {
+        if (isInCart(item)) {
           console.log('Element already in cache store.');
           return;
         }
-        setCart([...cart, obj]);
-        setStore(store,cantidad);
+        console.log(item,'objeto')
+        setCart([...cart,item]);
+        setStore(quantity);
+        console.log(quantity);
+        console.log(store);
         console.log('Elemento agregado!');
       }
 
 
       return (
         <CartContext.Provider
-          value={{ cart, addItem, isInCart, clear}}
+          value={{addItem, isInCart, clear, cart,store}}
         >
-
+            <Home/>
         </CartContext.Provider>
       );
 }
