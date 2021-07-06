@@ -24,7 +24,7 @@ const ItemDetail = ({item}) => {
         }else {
             setStock((stock) => stock - StockRestante);
             setSaveProduct(true);
-            addItem(item,stock);
+            addItem(item,StockRestante);
         }
     }
 
